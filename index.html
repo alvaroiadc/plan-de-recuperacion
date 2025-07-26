@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro de Rehabilitación y Performance - Tenis Competitivo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f0f2f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: drift 20s linear infinite;
+        }
+        
+        @keyframes drift {
+            to { transform: translate(20px, 20px); }
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+        
+        .diagnosis-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: -30px 40px 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .diagnosis-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .diagnosis-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .diagnosis-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            margin: 25px 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            margin: 25px 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 25px;
+            margin: 25px 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .critical-box {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 25px;
+            margin: 25px 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #0f2027;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #2196f3;
+            font-weight: 700;
+        }
+        
+        h3 {
+            color: #203a43;
+            font-size: 1.7em;
+            margin: 30px 0 20px 0;
+            font-weight: 600;
+        }
+        
+        h4 {
+            color: #2c5364;
+            font-size: 1.3em;
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        h5 {
+            color: #37474f;
+            font-size: 1.1em;
+            margin: 15px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+            transition: all 0.3s ease;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+            padding: 40px;
+            margin: 50px 0 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .phase-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .phase-header h2 {
+            border: none;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .phase-header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .day-schedule {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .exercise-card {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 6px solid;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .rehab-exercise {
+            border-left-color: #f44336;
+            background: linear-gradient(to right, #ffebee, white);
+        }
+        
+        .strength-exercise {
+            border-left-color: #4caf50;
+            background: linear-gradient(to right, #e8f5e9, white);
+        }
+        
+        .cardio-exercise {
+            border-left-color: #ff9800;
+            background: linear-gradient(to right, #fff3e0, white);
+        }
+        
+        .tennis-exercise {
+            border-left-color: #9c27b0;
+            background: linear-gradient(to right, #f3e5f5, white);
+        }
+        
+        .mobility-exercise {
+            border-left-color: #00bcd4;
+            background: linear-gradient(to right, #e0f7fa, white);
+        }
+        
+        .nutrition-exercise {
+            border-left-color: #8bc34a;
+            background: linear-gradient(to right, #f1f8e9, white);
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+        
+        .progress-indicator {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .beginner {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+        }
+        
+        .intermediate {
+            background: linear-gradient(135deg, #ff9800, #ffb74d);
+            color: white;
+        }
+        
+        .advanced {
+            background: linear-gradient(135deg, #2196f3, #64b5f6);
+            color: white;
+        }
+        
+        .time-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .time-block h6 {
+            color: #1976d2;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .daily-checklist {
+            background: #fafafa;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 15px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 3px solid #2196f3;
+            border-radius: 5px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .nutrition-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .nutrition-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #2196f3, #64b5f6);
+        }
+        
+        .nutrition-item {
+            position: relative;
+            padding-left: 60px;
+            margin: 25px 0;
+        }
+        
+        .nutrition-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #2196f3;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #e3f2fd;
+        }
+        
+        .supplement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .supplement-card {
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .supplement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .supplement-card h5 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .tracking-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        .tracking-table th {
+            background: linear-gradient(135deg, #37474f, #455a64);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+        }
+        
+        .recovery-protocol {
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .recovery-protocol h4 {
+            color: #3f51b5;
+            margin-bottom: 20px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            section {
+                page-break-inside: avoid;
+            }
+            
+            .phase-header {
+                page-break-before: always;
+            }
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2196f3;
+            margin: 10px 0;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .anatomical-focus {
+            background: linear-gradient(135deg, #fff9c4, #fff59d);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fbc02d;
+        }
+        
+        .technique-tip {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #03a9f4;
+            font-style: italic;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plan Maestro de Rehabilitación Integral</h1>
+            <p>Protocolo Específico Multi-Diagnóstico para Retorno al Tenis Competitivo</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">24 Semanas | 6 Fases | Recuperación Total</p>
+        </header>
+
+        <div class="diagnosis-box">
+            <h3>🔬 Diagnósticos Diferenciales Identificados</h3>
+            <div class="diagnosis-list">
+                <div class="diagnosis-item">
+                    <strong>1. Síndrome de Dolor del Hombro Anterior</strong>
+                    <p>Secundario a disfunción postural (Síndrome Cruzado Superior)</p>
+                </div>
+                <div class="diagnosis-item">
+                    <strong>2. Síndrome de Pinzamiento Subacromial</strong>
+                    <p>Con Tendinopatía del Manguito Rotador</p>
+                </div>
+                <div class="diagnosis-item">
+                    <strong>3. Disquinesia Escapular Tipo 1-2</strong>
+                    <p>Alteración del ritmo escapulohumeral</p>
+                </div>
+                <div class="diagnosis-item">
+                    <strong>4. Tendinopatía Crónica del Pectoral Mayor</strong>
+                    <p>Inserción clavicular afectada</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="critical-box">
+            <h3>⚡ PRINCIPIO FUNDAMENTAL</h3>
+            <p><strong>Este plan aborda TODOS los diagnósticos simultáneamente</strong> mediante un enfoque integrado que corrige las disfunciones biomecánicas comunes. La adherencia estricta al protocolo diario es ESENCIAL para tu recuperación completa.</p>
+        </div>
+
+        <section>
+            <h2>🎯 Objetivos Terapéuticos Integrados</h2>
+            
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Objetivo Principal</th>
+                    <th>Estrategia</th>
+                    <th>Indicador de Éxito</th>
+                </tr>
+                <tr>
+                    <td><strong>Postural</strong></td>
+                    <td>Corregir Síndrome Cruzado Superior</td>
+                    <td>Elongación anterior + Fortalecimiento posterior</td>
+                    <td>Alineación neutral cabeza-hombros</td>
+                </tr>
+                <tr>
+                    <td><strong>Escapular</strong></td>
+                    <td>Restaurar ritmo escapulohumeral</td>
+                    <td>Control neuromuscular + Estabilización dinámica</td>
+                    <td>Ratio 2:1 glenohumeral:escapular</td>
+                </tr>
+                <tr>
+                    <td><strong>Subacromial</strong></td>
+                    <td>Descomprimir espacio</td>
+                    <td>Fortalecimiento depresores + Técnica manual</td>
+                    <td>Arco doloroso eliminado</td>
+                </tr>
+                <tr>
+                    <td><strong>Tendinoso</strong></td>
+                    <td>Remodelar colágeno</td>
+                    <td>Carga excéntrica progresiva + Nutrición</td>
+                    <td>Dolor < 2/10 post-ejercicio</td>
+                </tr>
+                <tr>
+                    <td><strong>Funcional</strong></td>
+                    <td>Integración deportiva</td>
+                    <td>Progresión específica tenis</td>
+                    <td>Servicio sin dolor al 80%</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>🧬 Protocolo Nutricional Anti-inflamatorio y Regenerativo</h2>
+            
+            <div class="nutrition-exercise">
+                <h3>Suplementación Terapéutica Diaria</h3>
+                
+                <div class="supplement-grid">
+                    <div class="supplement-card">
+                        <h5>🐟 Omega-3 (EPA/DHA)</h5>
+                        <div class="metric-value">3g</div>
+                        <p><strong>Timing:</strong> Con desayuno</p>
+                        <p><strong>Función:</strong> Reducción IL-1β, TNF-α</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h5>🧡 Curcumina + Piperina</h5>
+                        <div class="metric-value">1000mg</div>
+                        <p><strong>Timing:</strong> Con comidas grasas</p>
+                        <p><strong>Función:</strong> Inhibición COX-2</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h5>☀️ Vitamina D3</h5>
+                        <div class="metric-value">4000 UI</div>
+                        <p><strong>Timing:</strong> Mañana</p>
+                        <p><strong>Función:</strong> Síntesis proteica muscular</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h5>💎 Magnesio Glicinato</h5>
+                        <div class="metric-value">400mg</div>
+                        <p><strong>Timing:</strong> Antes de dormir</p>
+                        <p><strong>Función:</strong> Relajación muscular</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h5>🦴 Colágeno I+III + Vit C</h5>
+                        <div class="metric-value">20g + 1g</div>
+                        <p><strong>Timing:</strong> 30-60min pre-ejercicio</p>
+                        <p><strong>Función:</strong> Síntesis tendinosa</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h5>⚡ Creatina Monohidrato</h5>
+                        <div class="metric-value">5g</div>
+                        <p><strong>Timing:</strong> Post-entreno</p>
+                        <p><strong>Función:</strong> ATP muscular</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Cronograma Nutricional Optimizado</h3>
+            
+            <div class="nutrition-timeline">
+                <div class="nutrition-item">
+                    <h6>5:30 AM - Pre-activación</h6>
+                    <ul>
+                        <li>500ml agua con limón + pizca sal rosa</li>
+                        <li>Café negro (opcional) + 5g MCT oil</li>
+                        <li>20g colágeno + 1g vitamina C</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>7:00 AM - Post-rehabilitación</h6>
+                    <ul>
+                        <li>Batido: 40g proteína whey + 1 plátano + 50g avena + canela</li>
+                        <li>3g Omega-3 + 4000UI Vitamina D3</li>
+                        <li>500ml agua con electrolitos</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>10:00 AM - Snack antiinflamatorio</h6>
+                    <ul>
+                        <li>30g nueces + 1 manzana</li>
+                        <li>Té verde con jengibre</li>
+                        <li>500mg curcumina + piperina</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>1:00 PM - Almuerzo regenerativo</h6>
+                    <ul>
+                        <li>150g salmón salvaje / pollo orgánico</li>
+                        <li>200g boniato + brócoli al vapor</li>
+                        <li>Ensalada arcoíris con aceite oliva virgen extra</li>
+                        <li>1 cucharada de cúrcuma fresca rallada</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>4:00 PM - Pre-entrenamiento</h6>
+                    <ul>
+                        <li>1 plátano + 20g mantequilla almendra</li>
+                        <li>500ml bebida isotónica casera</li>
+                        <li>5g BCAA (opcional)</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>6:30 PM - Post-entrenamiento (30min ventana)</h6>
+                    <ul>
+                        <li>40g proteína + 40g carbohidratos rápidos</li>
+                        <li>5g creatina monohidrato</li>
+                        <li>750ml agua</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>8:00 PM - Cena reparadora</h6>
+                    <ul>
+                        <li>150g carne roja magra (2x/semana) o pescado blanco</li>
+                        <li>Quinoa con verduras asadas</li>
+                        <li>Aguacate + semillas de chía</li>
+                        <li>500mg curcumina + piperina</li>
+                    </ul>
+                </div>
+                
+                <div class="nutrition-item">
+                    <h6>10:00 PM - Pre-sueño</h6>
+                    <ul>
+                        <li>Yogur griego + 10g nueces + canela</li>
+                        <li>400mg magnesio glicinato</li>
+                        <li>Infusión manzanilla + ashwagandha</li>
+                        <li>1g glicina (opcional)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>💧 Protocolo de Hidratación</h4>
+                <ul>
+                    <li><strong>Base:</strong> 35-40ml/kg peso corporal/día</li>
+                    <li><strong>Entrenamiento:</strong> +500-750ml/hora ejercicio</li>
+                    <li><strong>Electrolitos:</strong> 1g sodio + 300mg potasio por litro durante ejercicio</li>
+                    <li><strong>Monitoreo:</strong> Color orina debe ser amarillo pálido</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="phase-header">
+            <h2>FASE 1: CONTROL NEUROMUSCULAR Y CORRECCIÓN POSTURAL</h2>
+            <p>Semanas 1-4 | Prioridad: Reprogramación de patrones motores</p>
+        </div>
+
+        <section>
+            <h3>📋 Evaluación Inicial Obligatoria (Día 1)</h3>
+            
+            <table>
+                <tr>
+                    <th>Test</th>
+                    <th>Procedimiento</th>
+                    <th>Valor Normal</th>
+                    <th>Tu Valor</th>
+                </tr>
+                <tr>
+                    <td>Distancia Pared-Occipucio</td>
+                    <td>Espalda contra pared, medir distancia cabeza</td>
+                    <td>< 2.5 cm</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>Test de Escapula Alada</td>
+                    <td>Push-up contra pared, observar escápula</td>
+                    <td>Sin protrusión</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>ROM Flexión Hombro</td>
+                    <td>Brazo arriba, medir ángulo</td>
+                    <td>180°</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>ROM Rotación Externa</td>
+                    <td>Codo 90°, rotar externamente</td>
+                    <td>90°</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>Test de Neer</td>
+                    <td>Elevación pasiva con rotación interna</td>
+                    <td>Negativo</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>Test de Hawkins</td>
+                    <td>Flexión 90° + rotación interna</td>
+                    <td>Negativo</td>
+                    <td>_____</td>
+                </tr>
+                <tr>
+                    <td>Fuerza Serrato Anterior</td>
+                    <td>Push-up plus mantenido</td>
+                    <td>30 seg</td>
+                    <td>_____</td>
+                </tr>
+            </table>
+
+            <h3>🗓️ Estructura Diaria - Fase 1</h3>
+            
+            <div class="day-schedule">
+                <h4>📅 LUNES, MIÉRCOLES, VIERNES - Día Tipo Completo</h4>
+                
+                <div class="time-block">
+                    <h6>⏰ 5:30-6:00 AM - Activación Matutina</h6>
+                    <div class="exercise-card mobility-exercise">
+                        <h5>Respiración y Movilidad Neural</h5>
+                        <ol>
+                            <li><strong>Respiración diafragmática 360°</strong> (5 min)
+                                <ul>
+                                    <li>Posición: Supino, rodillas flexionadas 90°</li>
+                                    <li>Mano en abdomen, otra en pecho</li>
+                                    <li>Inhalar 4s (expansión 360°) - Mantener 4s - Exhalar 6s</li>
+                                    <li>20 respiraciones totales</li>
+                                </ul>
+                            </li>
+                            <li><strong>Movilización neural - Nervio mediano</strong> (5 min)
+                                <ul>
+                                    <li>Brazo 90° abducción, codo extendido</li>
+                                    <li>Extensión muñeca + inclinación cervical opuesta</li>
+                                    <li>3x15 deslizamientos suaves</li>
+                                    <li>Sin provocar parestesias</li>
+                                </ul>
+                            </li>
+                            <li><strong>Cat-Cow con énfasis torácico</strong> (5 min)
+                                <ul>
+                                    <li>Cuadrupedia, manos bajo hombros</li>
+                                    <li>Flexión-extensión segmentaria</li>
+                                    <li>3x20 repeticiones lentas</li>
+                                    <li>Foco en movilidad T4-T8</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 6:00-7:15 AM - Protocolo de Rehabilitación Principal</h6>
+                    
+                    <div class="exercise-card rehab-exercise">
+                        <h5>1. Liberación Miofascial Específica (15 min)</h5>
+                        <div class="anatomical-focus">
+                            <strong>Estructuras Diana:</strong> Pectoral menor, Subescapular, Elevador de la escápula, Trapecio superior
+                        </div>
+                        <ol>
+                            <li><strong>Pectoral menor con pelota lacrosse</strong>
+                                <ul>
+                                    <li>Posición: Contra pared, pelota bajo clavícula</li>
+                                    <li>Presión: 7/10 tolerancia</li>
+                                    <li>Técnica: Presión estática 30s + movimiento brazo</li>
+                                    <li>3 puntos x 90s cada uno</li>
+                                    <li class="technique-tip">💡 Si encuentras punto gatillo, mantén presión hasta sentir liberación (30-90s)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Subescapular con foam roller</strong>
+                                <ul>
+                                    <li>Lateral sobre roller, brazo 90° abducción</li>
+                                    <li>Rodar lentamente borde lateral escápula</li>
+                                    <li>2 min cada lado</li>
+                                    <li>Combinar con rotaciones glenohumeral</li>
+                                </ul>
+                            </li>
+                            <li><strong>Trapecio superior - técnica PIN & STRETCH</strong>
+                                <ul>
+                                    <li>Pelota en punto medio trapecio</li>
+                                    <li>Presión + inclinación lateral cervical</li>
+                                    <li>10 repeticiones x 3 puntos</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card rehab-exercise">
+                        <h5>2. Corrección Postural Activa (20 min)</h5>
+                        <ol>
+                            <li><strong>Wall Angels progresivos</strong>
+                                <ul>
+                                    <li>Espalda completa contra pared</li>
+                                    <li>Lordosis lumbar neutral (mano no pasa)</li>
+                                    <li>Brazos en Y → T → W → Y</li>
+                                    <li>3x15 cada posición, tempo 2-0-2</li>
+                                    <li class="technique-tip">💡 Si no puedes mantener contacto, alejate 5cm de pared</li>
+                                </ul>
+                            </li>
+                            <li><strong>Chin Tucks con resistencia</strong>
+                                <ul>
+                                    <li>Banda elástica alrededor de cabeza</li>
+                                    <li>Retracción cervical contra resistencia</li>
+                                    <li>3x20, mantener 3s</li>
+                                    <li>Evitar flexión cervical</li>
+                                </ul>
+                            </li>
+                            <li><strong>Prone Y-T-W con rotación</strong>
+                                <ul>
+                                    <li>Prono en banco inclinado 30°</li>
+                                    <li>Sin peso semana 1-2, luego 0.5kg</li>
+                                    <li>Y: 3x12, T: 3x12, W: 3x12</li>
+                                    <li>Añadir rotación externa en W</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card rehab-exercise">
+                        <h5>3. Activación Selectiva del Manguito (20 min)</h5>
+                        <ol>
+                            <li><strong>Isométricos submáximos multiángulo</strong>
+                                <ul>
+                                    <li>30% contracción máxima voluntaria</li>
+                                    <li>Rotación externa: 0°, 45°, 90° abducción</li>
+                                    <li>Rotación interna: mismos ángulos</li>
+                                    <li>5x5s cada posición</li>
+                                </ul>
+                            </li>
+                            <li><strong>Setting del infraespinoso</strong>
+                                <ul>
+                                    <li>Lateral, brazo apoyado</li>
+                                    <li>Activación sin movimiento</li>
+                                    <li>Palpar contracción en fosa infraespinosa</li>
+                                    <li>10x10s, descanso 10s</li>
+                                </ul>
+                            </li>
+                            <li><strong>Co-contracción rotadores</strong>
+                                <ul>
+                                    <li>Codo 90°, antebrazo neutro</li>
+                                    <li>Resistencia manual bilateral</li>
+                                    <li>Mantener posición contra perturbaciones</li>
+                                    <li>3x30s</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card rehab-exercise">
+                        <h5>4. Estabilización Escapular Fundamental (20 min)</h5>
+                        <ol>
+                            <li><strong>Serrato anterior - Wall slides con foam roller</strong>
+                                <ul>
+                                    <li>Roller entre antebrazos contra pared</li>
+                                    <li>Protracción escapular mantenida</li>
+                                    <li>Deslizar arriba-abajo</li>
+                                    <li>3x15, tempo 3-1-3</li>
+                                </ul>
+                            </li>
+                            <li><strong>Push-up plus modificado</strong>
+                                <ul>
+                                    <li>Semana 1-2: Pared</li>
+                                    <li>Semana 3-4: Inclinado (manos en banco)</li>
+                                    <li>Énfasis en plus (protracción extra)</li>
+                                    <li>4x12, mantener 2s arriba</li>
+                                </ul>
+                            </li>
+                            <li><strong>Retracción escapular con banda</strong>
+                                <ul>
+                                    <li>Banda anclada al frente</li>
+                                    <li>Brazos extendidos, retracción pura</li>
+                                    <li>Sin elevación de hombros</li>
+                                    <li>3x20, mantener 2s</li>
+                                </ul>
+                            </li>
+                            <li><strong>Estabilización en cuadrupedia</strong>
+                                <ul>
+                                    <li>Peso corporal distribuido 25% cada apoyo</li>
+                                    <li>Elevar una mano 2cm, mantener</li>
+                                    <li>Sin rotación trunk</li>
+                                    <li>3x10s cada lado</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 7:30-8:00 AM - Integración Funcional</h6>
+                    <div class="exercise-card strength-exercise">
+                        <h5>Core Anti-rotación y Estabilidad Global</h5>
+                        <ol>
+                            <li><strong>Dead bug con énfasis respiratorio</strong>
+                                <ul>
+                                    <li>Exhalar al extender pierna</li>
+                                    <li>Mantener lordosis neutral</li>
+                                    <li>3x10 cada lado, alternando</li>
+                                </ul>
+                            </li>
+                            <li><strong>Pallof press isométrico</strong>
+                                <ul>
+                                    <li>Banda lateral, brazos extendidos</li>
+                                    <li>Resistir rotación</li>
+                                    <li>3x20s cada lado</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bird dog con perturbaciones</strong>
+                                <ul>
+                                    <li>Partner aplica presión suave</li>
+                                    <li>Mantener alineación</li>
+                                    <li>3x10 cada diagonal</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 11:00-11:30 AM - Sesión Postural Laboral</h6>
+                    <div class="exercise-card mobility-exercise">
+                        <h5>Microbreaks Cada Hora (2-3 min)</h5>
+                        <ul>
+                            <li><strong>Retracción escapular:</strong> 20 reps</li>
+                            <li><strong>Chin tucks:</strong> 15 reps</li>
+                            <li><strong>Rotación torácica sentado:</strong> 10 cada lado</li>
+                            <li><strong>Estiramiento pectoral puerta:</strong> 30s cada lado</li>
+                            <li><strong>Activación glúteos:</strong> 20 contracciones</li>
+                        </ul>
+                        <div class="warning-box">
+                            <strong>⏰ Configurar alarma cada hora - NO NEGOCIABLE</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 5:00-6:30 PM - Entrenamiento Complementario</h6>
+                    
+                    <div class="exercise-card cardio-exercise">
+                        <h5>Acondicionamiento Cardiovascular Base</h5>
+                        <p><strong>Objetivo:</strong> Mejorar perfusión tisular sin impacto en hombro</p>
+                        <ol>
+                            <li><strong>Bicicleta estática</strong> (30 min)
+                                <ul>
+                                    <li>5 min calentamiento al 50%</li>
+                                    <li>20 min zona 2 (65-75% FCmax)</li>
+                                    <li>5 min enfriamiento</li>
+                                    <li>Postura erguida, sin apoyo en manubrio</li>
+                                </ul>
+                            </li>
+                            <li><strong>Caminata inclinada</strong> (15 min alternativa)
+                                <ul>
+                                    <li>Inclinación 5-8%</li>
+                                    <li>Velocidad 5-6 km/h</li>
+                                    <li>Brazos libres, no agarrarse</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card strength-exercise">
+                        <h5>Fortalecimiento Tren Inferior - Base Tenis</h5>
+                        <ol>
+                            <li><strong>Sentadillas goblet</strong>
+                                <ul>
+                                    <li>Peso: 8-12kg</li>
+                                    <li>4x15, tempo 3-0-1</li>
+                                    <li>Énfasis en técnica perfecta</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lunges multidireccionales</strong>
+                                <ul>
+                                    <li>Frontal: 3x12</li>
+                                    <li>Lateral: 3x12</li>
+                                    <li>Reverso: 3x12</li>
+                                    <li>Solo peso corporal</li>
+                                </ul>
+                            </li>
+                            <li><strong>Step-ups con drive de rodilla</strong>
+                                <ul>
+                                    <li>Altura: 30-40cm</li>
+                                    <li>3x10 cada pierna</li>
+                                    <li>Control excéntrico 3s</li>
+                                </ul>
+                            </li>
+                            <li><strong>Puentes glúteos unilaterales</strong>
+                                <ul>
+                                    <li>3x15 cada lado</li>
+                                    <li>Mantener 2s arriba</li>
+                                    <li>Progresión: añadir banda</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 8:00-9:00 PM - Protocolo de Recuperación Nocturno</h6>
+                    
+                    <div class="recovery-protocol">
+                        <h4>Rutina de Recuperación Obligatoria</h4>
+                        <ol>
+                            <li><strong>Ducha contraste</strong> (10 min)
+                                <ul>
+                                    <li>3 min caliente (38-40°C)</li>
+                                    <li>1 min fría (15-18°C)</li>
+                                    <li>Repetir 3 ciclos</li>
+                                    <li>Terminar con frío</li>
+                                </ul>
+                            </li>
+                            <li><strong>Auto-liberación miofascial</strong> (15 min)
+                                <ul>
+                                    <li>Foam roller: IT band, cuádriceps, gemelos</li>
+                                    <li>Pelota: Planta pies, glúteos</li>
+                                    <li>30-60s por área</li>
+                                </ul>
+                            </li>
+                            <li><strong>Estiramientos pasivos</strong> (15 min)
+                                <ul>
+                                    <li>Pectoral puerta: 3x45s</li>
+                                    <li>Dorsal colgado: 3x30s</li>
+                                    <li>Flexores cadera: 3x45s cada lado</li>
+                                    <li>Isquiotibiales: 3x45s</li>
+                                </ul>
+                            </li>
+                            <li><strong>Respiración 4-7-8</strong> (10 min)
+                                <ul>
+                                    <li>Inhalar 4s nariz</li>
+                                    <li>Mantener 7s</li>
+                                    <li>Exhalar 8s boca</li>
+                                    <li>8 ciclos totales</li>
+                                </ul>
+                            </li>
+                            <li><strong>Aplicación de hielo</strong> (si dolor > 3/10)
+                                <ul>
+                                    <li>Bolsa hielo en hombro anterior</li>
+                                    <li>15 min máximo</li>
+                                    <li>Toalla entre hielo y piel</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📊 Progresión Semanal - Fase 1</h3>
+            
+            <table>
+                <tr>
+                    <th>Semana</th>
+                    <th>Volumen</th>
+                    <th>Intensidad</th>
+                    <th>Modificaciones</th>
+                    <th>Objetivos</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>50%</td>
+                    <td>RPE 4-5/10</td>
+                    <td>Todo sin peso</td>
+                    <td>Aprender patrones</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>70%</td>
+                    <td>RPE 5-6/10</td>
+                    <td>Bandas muy ligeras</td>
+                    <td>Activación correcta</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>85%</td>
+                    <td>RPE 6-7/10</td>
+                    <td>+0.5kg algunos ejercicios</td>
+                    <td>Resistencia muscular</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>100%</td>
+                    <td>RPE 7/10</td>
+                    <td>Progresiones completas</td>
+                    <td>Preparar fase 2</td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="phase-header">
+            <h2>FASE 2: ESTABILIZACIÓN Y FORTALECIMIENTO SELECTIVO</h2>
+            <p>Semanas 5-8 | Prioridad: Control dinámico y fuerza funcional</p>
+        </div>
+
+        <section>
+            <h3>🎯 Nuevos Elementos - Fase 2</h3>
+            
+            <div class="info-box">
+                <h4>Progresiones Clave</h4>
+                <ul>
+                    <li>✅ Introducción de pesas ligeras (1-3kg)</li>
+                    <li>✅ Ejercicios en cadena cinética cerrada</li>
+                    <li>✅ Trabajo excéntrico controlado</li>
+                    <li>✅ Patrones diagonales PNF</li>
+                    <li>✅ Shadow tennis (sin pelota)</li>
+                    <li>✅ Pliometría de bajo impacto</li>
+                </ul>
+            </div>
+
+            <h3>Ejemplo Día Completo - MARTES Fase 2</h3>
+            
+            <div class="day-schedule">
+                <div class="time-block">
+                    <h6>⏰ 6:00-7:30 AM - Sesión Principal Matutina</h6>
+                    
+                    <div class="exercise-card rehab-exercise">
+                        <h5>1. Calentamiento Neuromuscular Avanzado (15 min)</h5>
+                        <ol>
+                            <li><strong>Activación escapular dinámica</strong>
+                                <ul>
+                                    <li>Scapular CARs (Controlled Articular Rotations)</li>
+                                    <li>3x10 cada dirección</li>
+                                    <li>Elevación → Protracción → Depresión → Retracción</li>
+                                </ul>
+                            </li>
+                            <li><strong>Movilidad torácica con rotación</strong>
+                                <ul>
+                                    <li>Cuadrupedia, mano detrás cabeza</li>
+                                    <li>Rotación + extensión torácica</li>
+                                    <li>3x15 cada lado</li>
+                                </ul>
+                            </li>
+                            <li><strong>Activación de cadena posterior</strong>
+                                <ul>
+                                    <li>Prone T-spine extension</li>
+                                    <li>3x12 con pausa 2s</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card rehab-exercise">
+                        <h5>2. Fortalecimiento del Manguito Rotador - Fase Intermedia (25 min)</h5>
+                        <ol>
+                            <li><strong>Rotación externa con banda - 90/90</strong>
+                                <ul>
+                                    <li>Codo 90°, hombro 90° abducción</li>
+                                    <li>Banda resistencia media</li>
+                                    <li>3x15, tempo 2-0-2</li>
+                                    <li>Foco en control excéntrico</li>
+                                    <li class="technique-tip">💡 Si sientes pinzamiento, reduce abducción a 70°</li>
+                                </ul>
+                            </li>
+                            <li><strong>Rotación interna con cable/banda</strong>
+                                <ul>
+                                    <li>Posición lateral, codo pegado</li>
+                                    <li>3x15 cada lado</li>
+                                    <li>Velocidad controlada</li>
+                                </ul>
+                            </li>
+                            <li><strong>Full can raises (scaption)</strong>
+                                <ul>
+                                    <li>30° del plano frontal</li>
+                                    <li>Peso: 1-2kg</li>
+                                    <li>3x12, no pasar altura hombros</li>
+                                    <li>Pulgar hacia arriba</li>
+                                </ul>
+                            </li>
+                            <li><strong>Face pulls con rotación externa</strong>
+                                <ul>
+                                    <li>Banda alta, tirar hacia cara</li>
+                                    <li>Terminar en W position</li>
+                                    <li>4x15, mantener 1s</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card rehab-exercise">
+                        <h5>3. Estabilización Escapular Dinámica (20 min)</h5>
+                        <ol>
+                            <li><strong>Push-up plus en plancha</strong>
+                                <ul>
+                                    <li>Posición plancha completa</li>
+                                    <li>Plus (protracción) al final</li>
+                                    <li>3x10, mantener plus 3s</li>
+                                    <li>Si difícil: rodillas apoyadas</li>
+                                </ul>
+                            </li>
+                            <li><strong>Serratus slides con deslizadores</strong>
+                                <ul>
+                                    <li>Plancha con manos en deslizadores</li>
+                                    <li>Deslizar manos adelante manteniendo core</li>
+                                    <li>3x8-10, rango controlado</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bear crawl con énfasis escapular</strong>
+                                <ul>
+                                    <li>Posición oso, rodillas 2cm del suelo</li>
+                                    <li>Avanzar manteniendo escápulas estables</li>
+                                    <li>3x10 pasos adelante y atrás</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card strength-exercise">
+                        <h5>4. Integración de Cadena Cinética (20 min)</h5>
+                        <ol>
+                            <li><strong>Chop diagonal con banda</strong>
+                                <ul>
+                                    <li>Alta a baja, cruzando cuerpo</li>
+                                    <li>Iniciar con piernas, rotar tronco</li>
+                                    <li>3x12 cada diagonal</li>
+                                    <li>Sin dolor en hombro</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lift diagonal (inverso)</strong>
+                                <ul>
+                                    <li>Baja a alta</li>
+                                    <li>Énfasis en glúteos y core</li>
+                                    <li>3x12 cada lado</li>
+                                </ul>
+                            </li>
+                            <li><strong>Single leg stance con perturbaciones</strong>
+                                <ul>
+                                    <li>Una pierna, brazos en T</li>
+                                    <li>Partner empuja suavemente</li>
+                                    <li>3x30s cada pierna</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 12:00-12:20 PM - Sesión Postural Mediodía</h6>
+                    <div class="exercise-card mobility-exercise">
+                        <h5>Reset Postural Profundo</h5>
+                        <ul>
+                            <li><strong>Estiramiento pectoral 3 ángulos:</strong> 60°, 90°, 135° - 45s cada uno</li>
+                            <li><strong>Extensión torácica sobre foam roller:</strong> 3 min</li>
+                            <li><strong>Colgarse de barra:</strong> 3x30s (si disponible)</li>
+                            <li><strong>Respiración en posición 90/90:</strong> 5 min</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 5:30-7:00 PM - Entrenamiento Específico Tenis</h6>
+                    
+                    <div class="exercise-card tennis-exercise">
+                        <h5>Shadow Tennis y Footwork (30 min)</h5>
+                        <div class="warning-box">
+                            <strong>⚠️ SIN rotación completa del hombro - Solo hasta 70% del rango</strong>
+                        </div>
+                        <ol>
+                            <li><strong>Footwork patterns básicos</strong> (10 min)
+                                <ul>
+                                    <li>Split steps: 3x20</li>
+                                    <li>Pasos laterales rápidos: 3x10 cada dirección</li>
+                                    <li>Pivotes y giros: 3x10</li>
+                                    <li>Aproximación a red: 3x8</li>
+                                </ul>
+                            </li>
+                            <li><strong>Shadow strokes con raqueta</strong> (15 min)
+                                <ul>
+                                    <li>Derecha: 50 reps (movimiento parcial)</li>
+                                    <li>Revés 2 manos: 50 reps</li>
+                                    <li>Voleas: 30 cada lado</li>
+                                    <li>Velocidad 50%, foco en técnica</li>
+                                </ul>
+                            </li>
+                            <li><strong>Combinaciones con desplazamiento</strong> (5 min)
+                                <ul>
+                                    <li>2 derechas + recuperación centro</li>
+                                    <li>Derecha + revés + split</li>
+                                    <li>3 series de cada patrón</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise-card cardio-exercise">
+                        <h5>Acondicionamiento Intervalado Tenis (30 min)</h5>
+                        <ol>
+                            <li><strong>Simulación de puntos</strong>
+                                <ul>
+                                    <li>20s trabajo alta intensidad (footwork)</li>
+                                    <li>25s recuperación activa</li>
+                                    <li>8 series = 1 "game"</li>
+                                    <li>3 min descanso entre "games"</li>
+                                    <li>Completar 4 "games"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Suicidios modificados</strong>
+                                <ul>
+                                    <li>Líneas de tenis: base→servicio→red→servicio→base</li>
+                                    <li>6 repeticiones</li>
+                                    <li>Descanso 1:2</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="time-block">
+                    <h6>⏰ 9:00-9:30 PM - Protocolo de Recuperación Avanzado</h6>
+                    <div class="recovery-protocol">
+                        <h5>Recuperación Fase 2</h5>
+                        <ol>
+                            <li><strong>Baño de contraste para brazos</strong>
+                                <ul>
+                                    <li>2 cubos: caliente (40°C) y frío (10°C)</li>
+                                    <li>3 min caliente → 1 min frío</li>
+                                    <li>4 ciclos totales</li>
+                                </ul>
+                            </li>
+                            <li><strong>Compresión neumática</strong> (si disponible)
+                                <ul>
+                                    <li>Piernas: 20 min</li>
+                                    <li>Presión media</li>
+                                </ul>
+                            </li>
+                            <li><strong>Meditación guiada</strong>
+                                <ul>
+                                    <li>Body scan 15 min</li>
+                                    <li>Foco en relajación hombro</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <h3>MARTES, JUEVES, SÁBADO - Días Alternos Fase 2</h3>
+            
+            <div class="info-box">
+                <h4>Estructura Diferente - Mayor Énfasis en:</h4>
+                <ul>
+                    <li>Trabajo excéntrico controlado</li>
+                    <li>Potencia de piernas</li>
+                    <li>Resistencia muscular localizada</li>
+                    <li>Técnica de golpeo adaptada</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="phase-header">
+            <h2>FASE 3: FORTALECIMIENTO AVANZADO E INTEGRACIÓN</h2>
+            <p>Semanas 9-12 | Prioridad: Potencia funcional y resistencia específica</p>
+        </div>
+
+        <section>
+            <h3>🚀 Progresiones Críticas - Fase 3</h3>
+            
+            <div class="success-box">
+                <h4>✅ Criterios de Entrada a Fase 3</h4>
+                <ul>
+                    <li>Dolor en reposo: 0/10</li>
+                    <li>Dolor post-ejercicio: <2/10</li>
+                    <li>ROM flexión: >160°</li>
+                    <li>ROM rotación externa: >80°</li>
+                    <li>Push-ups completos: 15 sin dolor</li>
+                    <li>Fuerza isométrica: 80% del lado sano</li>
+                </ul>
+            </div>
+
+            <h3>Nuevas Incorporaciones</h3>
+            
+            <table>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Ejercicio</th>
+                    <th>Volumen</th>
+                    <th>Precauciones</th>
+                </tr>
+                <tr>
+                    <td>Pliometría</td>
+                    <td>Medicine ball throws laterales</td>
+                    <td>3x8 cada lado</td>
+                    <td>Comenzar con 2kg</td>
+                </tr>
+                <tr>
+                    <td>Fuerza</td>
+                    <td>Press militar con mancuernas</td>
+                    <td>3x10 (3-5kg)</td>
+                    <td>No pasar altura cabeza</td>
+                </tr>
+                <tr>
+                    <td>Tenis</td>
+                    <td>Golpeo con pelotas blandas</td>
+                    <td>20 min/día</td>
+                    <td>50% intensidad máx</td>
+                </tr>
+                <tr>
+                    <td>Potencia</td>
+                    <td>Saltos al cajón</td>
+                    <td>4x5</td>
+                    <td>Altura 30-40cm</td>
+                </tr>
+                <tr>
+                    <td>Resistencia</td>
+                    <td>Circuitos metabólicos</td>
+                    <td>3x8 estaciones</td>
+                    <td>30s trabajo/15s descanso</td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="phase-header">
+            <h2>FASE 4: RETORNO PROGRESIVO AL DEPORTE</h2>
+            <p>Semanas 13-16 | Prioridad: Integración completa de habilidades</p>
+        </div>
+
+        <section>
+            <h3>Protocolo de Retorno al Tenis</h3>
+            
+            <div class="warning-box">
+                <h4>⚠️ Progresión de Intensidad Obligatoria</h4>
+                <ul>
+                    <li><strong>Semana 13:</strong> Peloteo 25% intensidad, máx 30 min</li>
+                    <li><strong>Semana 14:</strong> Peloteo 50% intensidad, máx 45 min</li>
+                    <li><strong>Semana 15:</strong> Juego dirigido 70%, introducir servicio slice</li>
+                    <li><strong>Semana 16:</strong> Sets de práctica 80%, servicio plano limitado</li>
+                </ul>
+            </div>
+
+            <h3>Plan Semanal Tipo - Fase 4</h3>
+            
+            <table>
+                <tr>
+                    <th>Día</th>
+                    <th>AM (90 min)</th>
+                    <th>PM (60-90 min)</th>
+                    <th>Foco Principal</th>
+                </tr>
+                <tr>
+                    <td>Lunes</td>
+                    <td>Técnica + Peloteo controlado</td>
+                    <td>Fuerza mantenimiento</td>
+                    <td>Calidad de movimiento</td>
+                </tr>
+                <tr>
+                    <td>Martes</td>
+                    <td>Footwork + Agilidad</td>
+                    <td>Tenis táctico</td>
+                    <td>Patrones de juego</td>
+                </tr>
+                <tr>
+                    <td>Miércoles</td>
+                    <td>Recuperación activa</td>
+                    <td>Técnica específica</td>
+                    <td>Correcciones finas</td>
+                </tr>
+                <tr>
+                    <td>Jueves</td>
+                    <td>Juego dirigido</td>
+                    <td>Acondicionamiento</td>
+                    <td>Resistencia específica</td>
+                </tr>
+                <tr>
+                    <td>Viernes</td>
+                    <td>Pre-competición</td>
+                    <td>Recuperación</td>
+                    <td>Preparación mental</td>
+                </tr>
+                <tr>
+                    <td>Sábado</td>
+                    <td>Simulacro partido</td>
+                    <td>Análisis video</td>
+                    <td>Competición</td>
+                </tr>
+                <tr>
+                    <td>Domingo</td>
+                    <td>Recuperación total</td>
+                    <td>Planificación</td>
+                    <td>Regeneración</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>📊 Sistema de Monitoreo y Evaluación</h2>
+            
+            <h3>Tracking Diario Obligatorio</h3>
+            
+            <div class="tracking-table">
+                <table>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Escala/Medida</th>
+                        <th>Frecuencia</th>
+                        <th>Alerta Roja</th>
+                    </tr>
+                    <tr>
+                        <td>Dolor en reposo</td>
+                        <td>EVA 0-10</td>
+                        <td>AM + PM</td>
+                        <td>> 3/10</td>
+                    </tr>
+                    <tr>
+                        <td>Dolor post-ejercicio</td>
+                        <td>EVA 0-10</td>
+                        <td>1h post</td>
+                        <td>> 5/10</td>
+                    </tr>
+                    <tr>
+                        <td>Rigidez matutina</td>
+                        <td>Minutos</td>
+                        <td>Al despertar</td>
+                        <td>> 15 min</td>
+                    </tr>
+                    <tr>
+                        <td>ROM flexión</td>
+                        <td>Grados</td>
+                        <td>Diario</td>
+                        <td>Pérdida >10°</td>
+                    </tr>
+                    <tr>
+                        <td>Calidad sueño</td>
+                        <td>1-10</td>
+                        <td>AM</td>
+                        <td>< 6/10</td>
+                    </tr>
+                    <tr>
+                        <td>HRV (variabilidad)</td>
+                        <td>ms</td>
+                        <td>AM</td>
+                        <td><30% baseline</td>
+                    </tr>
+                    <tr>
+                        <td>RPE sesión</td>
+                        <td>6-20 Borg</td>
+                        <td>Post-entreno</td>
+                        <td>> 17</td>
+                    </tr>
+                    <tr>
+                        <td>Fatiga general</td>
+                        <td>1-10</td>
+                        <td>AM + PM</td>
+                        <td>> 7/10</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Tests de Progresión Quincenal</h3>
+            
+            <div class="exercise-card">
+                <h5>Batería de Tests Funcionales</h5>
+                <ol>
+                    <li><strong>Test de Fuerza Isométrica</strong>
+                        <ul>
+                            <li>Dinamómetro manual</li>
+                            <li>RE/RI a 0° y 90°</li>
+                            <li>Objetivo: >85% lado sano</li>
+                        </ul>
+                    </li>
+                    <li><strong>Closed Kinetic Chain Upper Extremity Test</strong>
+                        <ul>
+                            <li>Toques en 15 segundos</li>
+                            <li>Normal: >20 hombres</li>
+                        </ul>
+                    </li>
+                    <li><strong>Y-Balance Test Upper Quarter</strong>
+                        <ul>
+                            <li>3 direcciones</li>
+                            <li>Asimetría <6cm</li>
+                        </ul>
+                    </li>
+                    <li><strong>Scapular Dyskinesis Test</strong>
+                        <ul>
+                            <li>5 elevaciones con peso</li>
+                            <li>Observar ritmo escapular</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>🧘‍♂️ Protocolo de Recuperación Avanzada</h2>
+            
+            <h3>Modalidades de Recuperación por Fase</h3>
+            
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Modalidad Principal</th>
+                    <th>Frecuencia</th>
+                    <th>Protocolo</th>
+                </tr>
+                <tr>
+                    <td>1-2</td>
+                    <td>Crioterapia local</td>
+                    <td>Diario si dolor</td>
+                    <td>15 min, 2-3x/día</td>
+                </tr>
+                <tr>
+                    <td>3-4</td>
+                    <td>Baños de contraste</td>
+                    <td>3x/semana</td>
+                    <td>3:1 calor:frío, 4 ciclos</td>
+                </tr>
+                <tr>
+                    <td>5-6</td>
+                    <td>Crioterapia cuerpo completo</td>
+                    <td>2x/semana</td>
+                    <td>3 min a -110°C</td>
+                </tr>
+                <tr>
+                    <td>Todas</td>
+                    <td>Foam rolling</td>
+                    <td>Diario</td>
+                    <td>10-15 min pre/post</td>
+                </tr>
+                <tr>
+                    <td>Todas</td>
+                    <td>Compresión neumática</td>
+                    <td>3x/semana</td>
+                    <td>30 min piernas</td>
+                </tr>
+                <tr>
+                    <td>3-6</td>
+                    <td>Masaje deportivo</td>
+                    <td>Semanal</td>
+                    <td>60 min focalizado</td>
+                </tr>
+            </table>
+
+            <h3>Técnicas de Modulación del Dolor</h3>
+            
+            <div class="recovery-protocol">
+                <h4>Protocolo TENS (si disponible)</h4>
+                <ul>
+                    <li><strong>Modo:</strong> Convencional (80-100 Hz)</li>
+                    <li><strong>Duración:</strong> 20-30 min</li>
+                    <li><strong>Intensidad:</strong> Sensación sin contracción</li>
+                    <li><strong>Ubicación:</strong> Alrededor zona dolorosa</li>
+                    <li><strong>Timing:</strong> Post-ejercicio o antes de dormir</li>
+                </ul>
+            </div>
+
+            <div class="recovery-protocol">
+                <h4>Técnicas de Respiración para Modulación Neural</h4>
+                <ol>
+                    <li><strong>Box Breathing (activación)</strong>
+                        <ul>
+                            <li>4-4-4-4 (inhalar-mantener-exhalar-mantener)</li>
+                            <li>5 minutos pre-ejercicio</li>
+                        </ul>
+                    </li>
+                    <li><strong>Respiración 4-7-8 (relajación)</strong>
+                        <ul>
+                            <li>Para reducir tono simpático</li>
+                            <li>8 ciclos antes de dormir</li>
+                        </ul>
+                    </li>
+                    <li><strong>Respiración Wim Hof (hormesis)</strong>
+                        <ul>
+                            <li>30 respiraciones + retención</li>
+                            <li>3 rondas, 2x/semana</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>💤 Optimización del Sueño y Recuperación</h2>
+            
+            <div class="info-box">
+                <h4>Protocolo de Higiene del Sueño</h4>
+                <ol>
+                    <li><strong>Horario fijo:</strong> Dormir 10:30 PM - 6:00 AM (mínimo 7.5h)</li>
+                    <li><strong>Ambiente:</strong> Temperatura 18-20°C, oscuridad total</li>
+                    <li><strong>Pre-sueño (2h antes):</strong>
+                        <ul>
+                            <li>Sin pantallas (luz azul)</li>
+                            <li>Luz tenue ámbar</li>
+                            <li>Actividades relajantes</li>
+                        </ul>
+                    </li>
+                    <li><strong>Suplementación nocturna:</strong>
+                        <ul>
+                            <li>Magnesio glicinato: 400mg</li>
+                            <li>L-teanina: 200mg (opcional)</li>
+                            <li>Melatonina: 0.5-1mg (si necesario)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Morning routine:</strong>
+                        <ul>
+                            <li>Luz solar directa 10 min</li>
+                            <li>Agua con sal rosa</li>
+                            <li>Sin café primera hora</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚨 Protocolos de Emergencia y Plan B</h2>
+            
+            <div class="critical-box">
+                <h3>Si Experimentas Exacerbación del Dolor</h3>
+                <ol>
+                    <li><strong>DETENER inmediatamente la actividad</strong></li>
+                    <li><strong>Protocolo RICE:</strong>
+                        <ul>
+                            <li>Rest: Reposo 24-48h</li>
+                            <li>Ice: 15 min cada 2h primeras 24h</li>
+                            <li>Compression: Vendaje suave</li>
+                            <li>Elevation: Brazo elevado</li>
+                        </ul>
+                    </li>
+                    <li><strong>Día 1-2 post-exacerbación:</strong>
+                        <ul>
+                            <li>Solo movilidad pasiva suave</li>
+                            <li>Respiración diafragmática</li>
+                            <li>TENS si disponible</li>
+                        </ul>
+                    </li>
+                    <li><strong>Día 3-5:</strong>
+                        <ul>
+                            <li>Retomar al 50% del volumen</li>
+                            <li>Solo ejercicios sin dolor</li>
+                            <li>Aumentar 10% diario si tolera</li>
+                        </ul>
+                    </li>
+                    <li><strong>Si dolor persiste >5 días:</strong> Consulta médica obligatoria</li>
+                </ol>
+            </div>
+
+            <h3>Modificaciones para Días Difíciles</h3>
+            
+            <table>
+                <tr>
+                    <th>Síntoma</th>
+                    <th>Modificación</th>
+                    <th>Alternativa</th>
+                </tr>
+                <tr>
+                    <td>Fatiga extrema</td>
+                    <td>Reducir volumen 50%</td>
+                    <td>Solo movilidad + caminar</td>
+                </tr>
+                <tr>
+                    <td>Dolor 3-5/10</td>
+                    <td>Evitar ejercicios con peso</td>
+                    <td>Isométricos + cardio suave</td>
+                </tr>
+                <tr>
+                    <td>Rigidez matutina</td>
+                    <td>Duplicar calentamiento</td>
+                    <td>Ducha caliente + movilidad extra</td>
+                </tr>
+                <tr>
+                    <td>Mal sueño</td>
+                    <td>Posponer entreno intenso</td>
+                    <td>Yoga + meditación</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>🎾 Técnica de Tenis Adaptada por Fases</h2>
+            
+            <h3>Modificaciones Biomecánicas para Protección</h3>
+            
+            <div class="exercise-card tennis-exercise">
+                <h5>Adaptaciones Técnicas Específicas</h5>
+                <h4>DERECHA (Forehand)</h4>
+                <ul>
+                    <li><strong>Fase 1-2:</strong> Sin raqueta, solo shadow</li>
+                    <li><strong>Fase 3:</strong> 
+                        <ul>
+                            <li>Grip más neutro (evitar western extremo)</li>
+                            <li>Terminación a altura hombro (no sobre cabeza)</li>
+                            <li>70% amplitud backswing</li>
+                        </ul>
+                    </li>
+                    <li><strong>Fase 4-5:</strong>
+                        <ul>
+                            <li>Progresión a swing completo</li>
+                            <li>Énfasis en rotación cadera/tronco</li>
+                            <li>Brazo relajado en follow-through</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>SERVICIO</h4>
+                <ul>
+                    <li><strong>Fase 1-3:</strong> PROHIBIDO</li>
+                    <li><strong>Fase 4:</strong> 
+                        <ul>
+                            <li>Solo servicio slice</li>
+                            <li>Lanzamiento más bajo</li>
+                            <li>50% velocidad máxima</li>
+                        </ul>
+                    </li>
+                    <li><strong>Fase 5-6:</strong>
+                        <ul>
+                            <li>Introducir kick serve</li>
+                            <li>Servicio plano último</li>
+                            <li>Progresión 10% semanal velocidad</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>📈 Proyección de Recuperación y Rendimiento</h2>
+            
+            <div class="success-box">
+                <h3>Timeline Esperado de Recuperación</h3>
+                <table>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Hitos Esperados</th>
+                        <th>Capacidad Funcional</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Control del dolor, movilidad básica</td>
+                        <td>30% actividad normal</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Fuerza básica, patrones correctos</td>
+                        <td>50% actividad normal</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Integración deportiva inicial</td>
+                        <td>70% actividad normal</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Juego controlado sin dolor</td>
+                        <td>85% actividad normal</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Competición práctica</td>
+                        <td>95% actividad normal</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Competición oficial</td>
+                        <td>100% sin restricciones</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>🏆 Preparación Mental y Visualización</h2>
+            
+            <div class="exercise-card">
+                <h5>Programa de Entrenamiento Mental Diario</h5>
+                
+                <h4>Mañana (10 min)</h4>
+                <ol>
+                    <li><strong>Scan corporal</strong> (3 min)
+                        <ul>
+                            <li>Identificar tensiones</li>
+                            <li>Liberar conscientemente</li>
+                        </ul>
+                    </li>
+                    <li><strong>Visualización de movimientos sin dolor</strong> (5 min)
+                        <ul>
+                            <li>Imaginar golpes perfectos</li>
+                            <li>Sensación de fluidez</li>
+                            <li>Confianza en el hombro</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afirmaciones</strong> (2 min)
+                        <ul>
+                            <li>"Mi cuerpo se fortalece cada día"</li>
+                            <li>"Confío en mi recuperación"</li>
+                            <li>"Juego sin miedo ni dolor"</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>Pre-Entrenamiento (5 min)</h4>
+                <ul>
+                    <li>Visualizar la sesión completa</li>
+                    <li>Anticipar sensaciones positivas</li>
+                    <li>Programar respuesta a fatiga</li>
+                </ul>
+
+                <h4>Post-Entrenamiento (5 min)</h4>
+                <ul>
+                    <li>Celebrar logros del día</li>
+                    <li>Reforzar patrones correctos</li>
+                    <li>Gratitud por el progreso</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="daily-checklist">
+            <h3>✅ Checklist Diario de Cumplimiento</h3>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Protocolo de rehabilitación AM completo</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Microbreaks posturales cada hora</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Nutrición antiinflamatoria seguida</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Suplementación tomada en horarios</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Entrenamiento PM realizado</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Protocolo de recuperación nocturno</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Registro de dolor/progreso</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>7.5+ horas de sueño</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Hidratación objetivo cumplido</span>
+            </div>
+            <div class="checklist-item">
+                <div class="checkbox"></div>
+                <span>Sin señales de alarma</span>
+            </div>
+        </div>
+
+        <footer style="background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); color: white; padding: 50px 40px; text-align: center; margin-top: 60px;">
+            <h2 style="font-size: 2.5em; margin-bottom: 20px; border: none;">Tu Recuperación es Tu Victoria</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Cada día de adherencia al plan te acerca a tu objetivo. La disciplina de hoy es la libertad de mañana.</p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 30px auto; max-width: 800px;">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">🏆 Recuerda Siempre</h3>
+                <ul style="list-style: none; padding: 0; text-align: left; font-size: 1.1em;">
+                    <li style="margin: 10px 0;">✓ La recuperación completa ES posible</li>
+                    <li style="margin: 10px 0;">✓ Tu cuerpo tiene capacidad de adaptación increíble</li>
+                    <li style="margin: 10px 0;">✓ La consistencia supera a la intensidad</li>
+                    <li style="margin: 10px 0;">✓ Escuchar a tu cuerpo es sabiduría</li>
+                    <li style="margin: 10px 0;">✓ Cada fase superada te hace más fuerte</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.9em; opacity: 0.8;">
+                Plan Maestro de Rehabilitación Multi-Diagnóstico<br>
+                Diseñado específicamente para tu recuperación integral<br>
+                24 semanas hacia tu máximo potencial tenístico
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
